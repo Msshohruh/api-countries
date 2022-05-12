@@ -23,7 +23,7 @@ function showWeather(dataArray) {
                     <h5 class="card-title">${data.name.common}</h5>
                     <p><b>Population: </b>  ${data.population}</p>
                     <p><b>Region: </b>  ${data.region}</p>
-                    <p><b>Capital: </b>  ${data.capital ? data.capital : 'Dont have a capital'}</p>
+                    <p><b>Capital: </b>  ${data.capital ? data.capital : "Don't have a capital"}</p>
                 </div>
             </div>
         </div>
