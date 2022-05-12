@@ -13,7 +13,6 @@ fetch(api)
     })
 
 function showWeather(dataArray) {
-    console.log(dataArray)
     dataArray.forEach((data)=>{
         container.innerHTML += `
         <div class="col">
