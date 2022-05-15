@@ -4,17 +4,18 @@ const btnImg = document.querySelector('.btn-img')
 const body = document.querySelector('body')
 const form = document.querySelector('form')
 const select = document.querySelector('select')
+const spinner = document.querySelector('.spinner')
 const api = `https://restcountries.com/v3.1/all`
     
     // select.value = 'Filter by Region'
-
-fetch(api)
-    .then((data) => {
-        return data.json()
-    })
-    .then((newData) => {
-        showWeather(newData)    
-    })
+async function fetchApi(api) {
+    spinner.classList.remove('hidden')
+    const req = await fetch(api)
+    const data = await req.json()
+    showWeather(data) 
+    spinner.classList.add('hidden')
+}
+fetchApi(api)
 
 function showWeather(dataArray) {
     dataArray.forEach((data)=>{
@@ -23,6 +24,7 @@ function showWeather(dataArray) {
         a.classList.add("card-link")
         a.setAttribute('id', `${data.name.common}`)
         a.setAttribute('data-set', `${data.region}`)
+        a.setAttribute('href', `detail.html?q=${data.name.common}`)
         a.innerHTML = 
         `
             <div class="card">
